@@ -70,9 +70,6 @@ export default {
     padding: 0;
     li{
       position: relative;
-      //background-color: #EF5350;
-      //padding: 1%;
-      //border: 1px solid white;
       color: white;
       transition: background-color 1s;
       .course-area{
@@ -87,6 +84,9 @@ export default {
         background-color: rgba(0,0,0,0.7);
         color: #eee;
         overflow: hidden;
+        h1{
+          font-size: 30px;
+        }
       }
       .course-banner{
         background-color: #AF5350;
