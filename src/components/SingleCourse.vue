@@ -30,7 +30,7 @@
           </ul>
         </div>
         <div v-else>
-          <h5>EM BREVE</h5>
+          <h2>EM BREVE</h2>
         </div>
       </b-card>
     </div>
