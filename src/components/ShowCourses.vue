@@ -1,7 +1,7 @@
 <template>
   <div id="show-courses">
     <ul>
-      <li v-for="course in courses">
+      <li class="col-12 col-sm-6 col-lg-4 col-md-4 col-xl-3" v-for="course in courses">
         <router-link v-bind:to="'/curso/'+course.id">
           <h1>{{course.title}}</h1>
           <img v-bind:src="course.banner">
@@ -22,7 +22,8 @@ export default {
       loadedCourses: 12,
       offsetCourses: 12,
       showButton: false,
-      ajaxLoaded: false
+      ajaxLoaded: false,
+      color: 'red'
     }
   },
   methods:{
@@ -37,7 +38,6 @@ export default {
   },
   beforeCreate() {
     this.$http.get('https://cefis.com.br/api/v1/event').then(function(data){
-      console.log(data.body.data)
       this.allCourses = data.body.data
       this.courses = this.allCourses.slice(0,12)
       if(this.allCourses.length <= 12)
@@ -56,19 +56,19 @@ export default {
   margin: 20px auto;
   padding: 0 20px;
   box-sizing: border-box;
-  position: relative;
   ul{
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
     li{
-      flex-grow: 1;
-      flex-basis: 300px;
-      text-align: center;
-      padding: 30px;
-      border: 1px solid #222;
-      margin: 10px;
+      background-color: #EF5350;
+      padding: 3%;
+      border: 1px solid white;
+      border-radius: 5px;
+      text-align: right;
+      color: white;
+      transition: background-color 1s;
     }
   }
 }

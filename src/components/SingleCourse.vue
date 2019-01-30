@@ -33,7 +33,6 @@ export default {
     this.$http.get('https://cefis.com.br/api/v1/event/'+ this.id + '?include=classes').then(function(data){
       this.course = data.body.data
       this.lessons = this.course.classes
-      console.log(this.lessons)
     })
   }
 }
