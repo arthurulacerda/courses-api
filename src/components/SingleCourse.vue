@@ -11,6 +11,9 @@
         </li>
       </ul>
     </div>
+    <div v-else>
+      <h5>EM BREVE</h5>
+    </div>
     <div>
       <h5>SOBRE O CURSO</h5>
       <p>{{course.resume}}</p>

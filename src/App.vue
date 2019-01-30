@@ -24,6 +24,5 @@ export default {
 
 <style lang='scss' scoped>
 div{
-  background-color: #f0f0f0;
 }
 </style>

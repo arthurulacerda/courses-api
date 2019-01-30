@@ -3,13 +3,19 @@
     <ul>
       <li class="col-12 col-sm-6 col-lg-4 col-md-4 col-xl-3" v-for="course in courses">
         <router-link v-bind:to="'/curso/'+course.id">
-          <h1>{{course.title}}</h1>
-          <img v-bind:src="course.banner">
+          <div class="course-area">
+            <div class="course-info">
+              <h1>{{course.title}}</h1>
+            </div>
+            <div class="course-banner">
+              <img v-bind:src="course.banner">
+            </div>
+          </div>
         </router-link>
       </li>
     </ul>
     <h1 v-show="!ajaxLoaded">Carregando Cursos, aguarde um instante...</h1>
-    <button class="btn btn-primary" v-show="showButton" v-on:click="getMoreCourses">Ver Mais Cursos</button>
+    <button class="btn btn-lg btn-primary btn-block" v-show="showButton" v-on:click="getMoreCourses">Ver Mais Cursos</button>
   </div>
 </template>
 
@@ -56,20 +62,50 @@ export default {
   margin: 20px auto;
   padding: 0 20px;
   box-sizing: border-box;
+  justify-content: center;
   ul{
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
     li{
-      background-color: #EF5350;
-      padding: 3%;
-      border: 1px solid white;
-      border-radius: 5px;
-      text-align: right;
+      position: relative;
+      //background-color: #EF5350;
+      //padding: 1%;
+      //border: 1px solid white;
       color: white;
       transition: background-color 1s;
+      .course-area{
+        position:relative;
+        margin:10px;
+      }
+      .course-info{
+        position: absolute;
+        width: 100%;
+        padding: 10px;
+        z-index: 2;
+        background-color: rgba(0,0,0,0.7);
+        color: #eee;
+        overflow: hidden;
+      }
+      .course-banner{
+        background-color: #AF5350;
+        overflow: hidden;
+        height: 300px;
+        position: relative;
+        z-index: 1;
+        img{
+          position: absolute;
+          min-width: 100%;
+          min-height: 300px;
+        }
+      }
     }
+  }
+  button{
+    color: #fff;
+    background-color: #8a8a8a;
+    border-color: #7a7a7a;
   }
 }
 </style>
